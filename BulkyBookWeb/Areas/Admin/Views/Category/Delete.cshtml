@@ -1,0 +1,54 @@
+﻿@* para trabajar en el modelo Category *@
+@model Category
+
+@* IMPORTANTE *@
+@* como todos los inputs estan deshabilitados => el id lo pasa como null, con uno q haya enables => id es primary key
+	, xeso se usa el input hidden y como esta dentro de la form => se va a poder agarrar en el controller del post *@
+
+<form method="post" asp-action="DeletePOST">
+	<input asp-for="Id" hidden />
+
+	<div class="border p-3 mt-4">
+		<div class="row pb-2">
+			<h2 class="text-primary">Delete Category</h2>
+			<hr />
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="Name"></label>
+			<input asp-for="Name" disabled class="form-control" />
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="DisplayOrder"></label>
+			<input asp-for="DisplayOrder" disabled class="form-control" />
+		</div>
+
+		@* * *@
+		<button type="submit" class="btn btn-danger" style="width:150px">Delete</button>
+
+		<a asp-controller="Category" asp-action="Index" class="btn btn-secondary" style="width:150px">
+			Back to Lists
+		</a>
+	</div>
+</form>
+
+@* PARA VALIDACION DEL LADO DEL CLIENTE Y QUE NO LLEGUE AL SERVER *@
+@*  * * *  *@
+@section Scripts{
+	@{
+		<partial name="_ValidationScriptsPartial" />
+	}
+}
+
+@* * *@
+@* como es la vista de Category/Edit, el boton al no tener un action va a hacer el 
+submit al POST del controler de category del metodo Edit
+DICE QUE EL POST LO VA A HACER AL DEL MISMO NOMBRE DEL GET que me mando a esta view, que es 
+// EDIT GET
+		public IActionResult Edit(int? id) ...
+
+, QUE ES EL EDIT, xlo q el post lo haria a Edit x default
+
+PARA EVITAR la ambiguedad es que se pone en el tag de form el asp-action="Edit"
+*@
