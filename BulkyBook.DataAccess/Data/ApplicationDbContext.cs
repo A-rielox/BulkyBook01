@@ -10,9 +10,12 @@ namespace BulkyBook.DataAccess
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }
-            // para q ocupe el modelo Category en la DB
-            // Categories es el nombre con el q va a crear la tabla
-            public DbSet<Category> Categories { get; set; }
-            public DbSet<CoverType> CoverTypes { get; set; }
+
+        // para q ocupe el modelo Category en la DB
+        // Categories es el nombre con el q va a crear la tabla
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<CoverType> CoverTypes { get; set; }
+        public DbSet<Product> Products { get; set; }
+
     }
 }
