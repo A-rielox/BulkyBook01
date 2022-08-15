@@ -172,7 +172,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
         }
 
     #region API CALLS
-        // se llama en product.js y carga la info de la tabla
+        // se llama en product.js y carga la info en la tabla
     [HttpGet]
     public IActionResult GetAll()
         {
