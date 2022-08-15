@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,8 +30,11 @@ namespace BulkyBook.Models.ViewModels
         // el prefiere q una view este binded a un solo modelo, asi que prefiere
         // crear un view model que sea responsable product upsert view.
         public Product Product { get; set; }
+
+        [ValidateNever]
         public IEnumerable<SelectListItem> CategoryList { get; set; }
-        
+
+        [ValidateNever]
         public IEnumerable<SelectListItem> CoverTypeList {get; set; }
     }
 }

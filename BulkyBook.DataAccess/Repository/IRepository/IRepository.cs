@@ -12,8 +12,10 @@ namespace BulkyBook.DataAccess.Repository.IRepository
         // add, find, update, remove
         // para update la logica seria distinta para c/clase,xlo q no se poneen los repository
         //var categoryFromDbFirst = _db.Categories.FirstOrDefault(c => c.Id == id);
-        T GetFirstOrDefault(Expression<Func<T, bool>> filter);
-        IEnumerable<T> GetAll();
+        // string? includeProperties = null, es para q conecte las foreign keys
+        // con la contraparte y salga el valor en lugar del id
+        T GetFirstOrDefault(Expression<Func<T, bool>> filter, string? includeProperties = null);
+        IEnumerable<T> GetAll(string? includeProperties = null);
         void Add(T entity);
         void Remove(T entity);
         void RemoveRange(IEnumerable<T> entity);
