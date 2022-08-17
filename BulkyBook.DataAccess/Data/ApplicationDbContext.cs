@@ -24,3 +24,6 @@ namespace BulkyBook.DataAccess
         public DbSet<Company> Companies { get; set; }
     }
 }
+
+// tras agregar un DbSet hay que hacer el 
+// PM> add-migration _nombre_
